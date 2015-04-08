@@ -64,7 +64,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.smoothstreaming=true \
-    mm.enable.qcom_parser=3314291 \
+    mm.enable.qcom_parser=3310129 \
     ro.qc.sdk.audio.fluencetype=fluence \
     persist.audio.fluence.voicecall=true \
     audio.offload.buffer.size.kb=32 \
@@ -85,7 +85,6 @@ PRODUCT_PACKAGES += \
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
-    e2fsck \
     setup_fs
 
 # Graphics
