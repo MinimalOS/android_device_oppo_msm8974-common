@@ -53,12 +53,17 @@ public class SunlightEnhancement {
      * the operation failed while reading the status; true in any other case.
      */
     public static boolean isEnabled() {
-        if (Integer.parseInt(FileUtils.readOneLine(FILE_SRE)) == 1) {
-            return true;
-        } else {
-            return false;
+        if (FileUtils.readOneLine(FILE_SRE) != null) {
+            if (Integer.parseInt(FileUtils.readOneLine(FILE_SRE)) == 1) {
+                return true;
+            } else {
+                return false;
+            }
         }
+       return false;
+
     }
+    
 
     /**
      * This method allows to setup SRE

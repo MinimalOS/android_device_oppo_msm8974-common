@@ -51,11 +51,14 @@ public class ColorEnhancement {
      * the operation failed while reading the status; true in any other case.
      */
     public static boolean isEnabled() {
-        if (Integer.parseInt(FileUtils.readOneLine(FILE_CE)) == 1) {
-            return true;
-        } else {
-            return false;
+	if (FileUtils.readOneLine(FILE_CE) != null) {
+            if (Integer.parseInt(FileUtils.readOneLine(FILE_CE)) == 1) {
+                return true;
+            } else {
+                return false;
+            }
         }
+	return false;
     }
 
     /**
