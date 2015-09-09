@@ -75,7 +75,6 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 BOARD_HARDWARE_CLASS += device/oppo/msm8974-common/cmhw
 
 # Graphics
-BOARD_EGL_CFG := device/oppo/msm8974-common/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_USES_ION := true
@@ -148,8 +147,8 @@ EXTENDED_FONT_FOOTPRINT := true
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
   ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
+    ifeq ($(WITH_DEXPREOPT_BOOT_IMG_ONLY),)
+      WITH_DEXPREOPT_BOOT_IMG_ONLY := true
     endif
   endif
 endif
