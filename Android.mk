@@ -17,7 +17,6 @@
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(BOARD_VENDOR),oppo)
-ifeq ($(TARGET_CAF_IDENTIFIER),)
 ifeq ($(TARGET_BOARD_PLATFORM),msm8974)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
@@ -165,6 +164,5 @@ $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
     ln -sf /data/misc/wifi/WCNSS_qcom_cfg.ini \
 	    $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
 
-endif
 endif
 endif

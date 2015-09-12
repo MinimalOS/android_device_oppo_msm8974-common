@@ -28,6 +28,7 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.qcom-common.rc \
+    init.qcom.power.rc \
     init.recovery.qcom.rc \
     ueventd.qcom.rc
 
@@ -69,7 +70,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.voicecall=true \
     audio.offload.buffer.size.kb=32 \
     av.offload.enable=true \
-    av.streaming.offload.enable=false \
+    av.streaming.offload.enable=true \
     use.voice.path.for.pcm.voip=true \
     audio.offload.multiple.enabled=false \
     audio.offload.gapless.enabled=true \
@@ -103,14 +104,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
     $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
-    $(LOCAL_PATH)/gps/lowi.conf:system/etc/lowi.conf \
     $(LOCAL_PATH)/gps/quipc.conf:system/etc/quipc.conf \
-    $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf \
-    $(LOCAL_PATH)/gps/xtwifi.conf:system/etc/xtwifi.conf
+    $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
 
 # Lights
 PRODUCT_PACKAGES += \
     lights.msm8974
+
+# IO Scheduler
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.io.scheduler=bfq
 
 # IPC router config
 PRODUCT_COPY_FILES += \
@@ -151,6 +154,10 @@ endif
 PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
+# Power
+PRODUCT_PACKAGES += \
+    power.msm8974
+
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.msm8974
@@ -176,7 +183,10 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf \
     wpa_supplicant_overlay.conf \
-    p2p_supplicant_overlay.conf
+    p2p_supplicant_overlay.conf \
+    hostapd_default.conf \
+    hostapd.accept \
+    hostapd.deny
 
 PRODUCT_PACKAGES += \
     wcnss_service
